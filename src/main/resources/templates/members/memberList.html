@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--MemberController에서 model에 addAttribute로 members(전체회원목록)을 넣어줌.
+            $표시로 model의 값을 읽어오는 건데, members에 th:each가 붙어있으므로 members에 있는 모든 값들을 돌면서
+            각각의 요소를 확인, member : 로 member에 담아준다! (타임리프 문법!!!!!)
+            그러면서 아래에서 member.id 등으로 member의 프로퍼티에 접근해서 값을 가져와 출력한다 -->
+            <tr th:each="member : ${members}">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
